@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <?php
+include('session.php');
 include("cnx.php");
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -78,12 +78,12 @@ include("cnx.php");
                                     <div class="text-end pe-4 pb-2">
                                         <h1><span class="fs-3">Dhs</span>
                                             <?php
-                                                include("cnx.php");
-                                                $nsum = "SELECT SUM(amount_paid) AS sumprix FROM payment_details";
-                                                $res = mysqli_query($conn, $nsum);
-                                                $total = mysqli_fetch_assoc($res);
-                                                $sumtotal = $total['sumprix'];
-                                                echo $sumtotal;
+                                            include("cnx.php");
+                                            $nsum = "SELECT SUM(amount_paid) AS sumprix FROM payment_details";
+                                            $res = mysqli_query($conn, $nsum);
+                                            $total = mysqli_fetch_assoc($res);
+                                            $sumtotal = $total['sumprix'];
+                                            echo $sumtotal;
                                             ?>
                                         </h1>
                                     </div>
@@ -96,7 +96,15 @@ include("cnx.php");
                                         <h5 class="pt-3 text-white">Users</h5>
                                     </div>
                                     <div class="text-end pe-4 pb-2">
-                                        <h1>3</h1>
+                                        <h1>
+                                            <?php
+                                            include("cnx.php");
+                                            $sql = "SELECT * FROM comptes";
+                                            $res = mysqli_query($conn, $sql);
+                                            $nrows = mysqli_num_rows($res);
+                                            echo "$nrows";
+                                            ?>
+                                        </h1>
                                     </div>
                                 </div>
                             </div>
